@@ -1,0 +1,23 @@
+import { useState } from 'react';
+import React from 'react';
+
+function Jokes(title) {
+  const [jokes, setJokes] = useState('FirstCard');
+
+  function getJokes() {
+    fetch('https://v2.jokeapi.dev/joke/Programming?safe-mode&type=twopart')
+      .then((response) => response.json())
+      .then((data) => {
+        setJokes(data);
+      });
+  }
+
+
+const Card = ({title}) = {
+  return(
+    <>
+    <p>{title}</p>
+    </>
+  )
+}
+}
