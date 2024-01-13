@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function Jokes() {
-  const [jokes, setJokes] = useState([]);
+  const [jokes, setJokes] = useState(['']);
   const [active, setActive] = useState('FirstCard');
 
   function getJokes() {
@@ -22,7 +22,7 @@ function Jokes() {
             title="FirstCard"
             onClick={() => {
               setActive('SecondCard');
-              getJokes();
+              getJokes(jokes.setup);
             }}
           >Get A Joke
           </button>
@@ -50,11 +50,7 @@ function Jokes() {
           <button
             type="button"
             title="ThirdCard"
-            onClick={() => {
-              setJokes({ setup: '', delivery: '' });
-              setActive('SecondCard');
-              getJokes();
-            }}
+            onClick={() => setActive('FirstCard')}
           >Get Another Jokes
           </button>
           <h1>{jokes.delivery}</h1>

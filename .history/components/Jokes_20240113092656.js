@@ -51,7 +51,6 @@ function Jokes() {
             type="button"
             title="ThirdCard"
             onClick={() => {
-              setJokes({ setup: '', delivery: '' });
               setActive('SecondCard');
               getJokes();
             }}

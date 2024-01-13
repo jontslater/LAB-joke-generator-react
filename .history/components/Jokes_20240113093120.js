@@ -9,7 +9,7 @@ function Jokes() {
       .then((response) => response.json())
       .then((data) => {
         setJokes(data);
-      });
+      }, []);
   }
 
   return (
@@ -51,7 +51,7 @@ function Jokes() {
             type="button"
             title="ThirdCard"
             onClick={() => {
-              setJokes({ setup: '', delivery: '' });
+              setJokes('');
               setActive('SecondCard');
               getJokes();
             }}

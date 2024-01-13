@@ -9,7 +9,7 @@ function Jokes() {
       .then((response) => response.json())
       .then((data) => {
         setJokes(data);
-      });
+      }, []);
   }
 
   return (

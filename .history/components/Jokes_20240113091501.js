@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 function Jokes() {
-  const [jokes, setJokes] = useState([]);
+  const [jokes, setJokes] = useState(['']);
   const [active, setActive] = useState('FirstCard');
 
   function getJokes() {
@@ -15,6 +15,7 @@ function Jokes() {
   return (
     <>
       <h1>Jokemaster 3000</h1>
+      {/* <h1>{jokes.delivery}</h1> */}
       <nav>
         {active === 'FirstCard' && (
           <button
@@ -22,43 +23,35 @@ function Jokes() {
             title="FirstCard"
             onClick={() => {
               setActive('SecondCard');
-              getJokes();
+              getJokes(jokes.setup);
             }}
           >Get A Joke
           </button>
         )}
+        <h1>{jokes.setup}</h1>
       </nav>
       <div>
         {active === 'SecondCard' && (
-        <>
           <button
             type="button"
             title="SecondCard"
             onClick={() => {
               setActive('ThirdCard');
+              // getJokes(jokes.delivery);
             }}
           >Get Punchline
           </button>
-          <h1>{jokes.setup}</h1>
-        </>
         )}
 
       </div>
       <div>
         {active === 'ThirdCard' && (
-        <>
           <button
             type="button"
             title="ThirdCard"
-            onClick={() => {
-              setJokes({ setup: '', delivery: '' });
-              setActive('SecondCard');
-              getJokes();
-            }}
+            onClick={() => setActive('FirstCard')}
           >Get Another Jokes
           </button>
-          <h1>{jokes.delivery}</h1>
-        </>
         )}
       </div>
 

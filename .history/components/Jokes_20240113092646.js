@@ -22,7 +22,7 @@ function Jokes() {
             title="FirstCard"
             onClick={() => {
               setActive('SecondCard');
-              getJokes();
+              getJokes(jokes.setup);
             }}
           >Get A Joke
           </button>
@@ -51,9 +51,8 @@ function Jokes() {
             type="button"
             title="ThirdCard"
             onClick={() => {
-              setJokes({ setup: '', delivery: '' });
               setActive('SecondCard');
-              getJokes();
+              getJokes(jokes.setup);
             }}
           >Get Another Jokes
           </button>
